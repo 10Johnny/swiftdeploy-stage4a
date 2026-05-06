@@ -1,13 +1,23 @@
-services:
-  image: swift-deploy-1-node:latest
+﻿services:
+  image: 10johnny-swiftdeploy-stage4b:latest
   port: 3000
   mode: stable
-  version: 1.0.0
+  version: "1.0.0"
   restart_policy: unless-stopped
+
 nginx:
   image: nginx:latest
   port: 8080
   proxy_timeout: 30
+
 network:
   name: swiftdeploy-net
   driver_type: bridge
+
+policy:
+  opa_url: http://localhost:8181
+  thresholds:
+    min_disk_free_gb: 10
+    max_cpu_load: 2.0
+    max_error_rate_percent: 1
+    max_p99_latency_ms: 500

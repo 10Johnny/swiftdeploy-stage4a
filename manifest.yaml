@@ -1,7 +1,7 @@
 services:
   image: 10johnny-swiftdeploy-stage4b:latest
   port: 3000
-  mode: canary
+  mode: stable
   version: 1.0.0
   restart_policy: unless-stopped
 nginx:

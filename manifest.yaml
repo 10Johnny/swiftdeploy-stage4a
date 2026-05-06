@@ -1,19 +1,16 @@
-﻿services:
+services:
   image: 10johnny-swiftdeploy-stage4b:latest
   port: 3000
-  mode: stable
-  version: "1.0.0"
+  mode: canary
+  version: 1.0.0
   restart_policy: unless-stopped
-
 nginx:
   image: nginx:latest
   port: 8080
   proxy_timeout: 30
-
 network:
   name: swiftdeploy-net
   driver_type: bridge
-
 policy:
   opa_url: http://localhost:8181
   thresholds:
